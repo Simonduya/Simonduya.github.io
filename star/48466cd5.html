@@ -1,0 +1,229 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>JavaScript程序错误与异常 | Like a Star</title><meta name="author" content="Simon"><meta name="copyright" content="Simon"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="程序错误与异常访问对象的未知属性在 JavaScript 中，如果一个对象的某个属性为 null 或 undefined，那么在访问该属性的方法或属性时会导致程序抛出异常并停止执行。 12345678910111213const person &#x3D; &amp;#123;  name: &quot;lili&quot;,  address: &amp;#123;    city: &quot;shang&quot;,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript程序错误与异常">
+<meta property="og:url" content="http://example.com/star/48466cd5.html">
+<meta property="og:site_name" content="Like a Star">
+<meta property="og:description" content="程序错误与异常访问对象的未知属性在 JavaScript 中，如果一个对象的某个属性为 null 或 undefined，那么在访问该属性的方法或属性时会导致程序抛出异常并停止执行。 12345678910111213const person &#x3D; &amp;#123;  name: &quot;lili&quot;,  address: &amp;#123;    city: &quot;shang&quot;,">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/category_per.webp">
+<meta property="article:published_time" content="2023-05-24T14:17:28.000Z">
+<meta property="article:modified_time" content="2023-05-24T14:24:04.358Z">
+<meta property="article:author" content="Simon">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/category_per.webp"><link rel="shortcut icon" href="/img/head.jpg"><link rel="canonical" href="http://example.com/star/48466cd5.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'JavaScript程序错误与异常',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-05-24 22:24:04'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/universe.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/category_per.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="Like a Star"><span class="site-name">Like a Star</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">JavaScript程序错误与异常</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-05-24T14:17:28.000Z" title="发表于 2023-05-24 22:17:28">2023-05-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-05-24T14:24:04.358Z" title="更新于 2023-05-24 22:24:04">2023-05-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/JavaScript/">JavaScript</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="JavaScript程序错误与异常"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="程序错误与异常"><a href="#程序错误与异常" class="headerlink" title="程序错误与异常"></a>程序错误与异常</h2><h3 id="访问对象的未知属性"><a href="#访问对象的未知属性" class="headerlink" title="访问对象的未知属性"></a>访问对象的未知属性</h3><p>在 JavaScript 中，如果一个对象的某个属性为 null 或 undefined，那么在访问该属性的方法或属性时会导致程序抛出异常并停止执行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;lili&quot;</span>,</span><br><span class="line">  <span class="attr">address</span>: &#123;</span><br><span class="line">    <span class="attr">city</span>: <span class="string">&quot;shang&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">kind</span>: <span class="literal">null</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">age</span>);</span><br><span class="line"><span class="comment">//Uncaught TypeError: Cannot read properties of undefined (reading &#x27;split&#x27;)</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">age</span>.<span class="title function_">split</span>(<span class="string">&quot;&quot;</span>));</span><br><span class="line"><span class="comment">//不会执行</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">kind</span>);</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>try...catch</code>可以捕获异常，程序不会中断</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;lili&quot;</span>,</span><br><span class="line">  <span class="attr">address</span>: &#123;</span><br><span class="line">    <span class="attr">city</span>: <span class="string">&quot;shang&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">kind</span>: <span class="literal">null</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">age</span>);</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">age</span>.<span class="title function_">split</span>(<span class="string">&quot;&quot;</span>));</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">warn</span>(e);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//依然执行</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">kind</span>);</span><br></pre></td></tr></table></figure>
+
+<p>使用可选链操作符访问对象属性可以确保即使 对象的属性 为 null 或 undefined，代码也可以正常执行，避免程序抛出异常。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;lili&quot;</span>,</span><br><span class="line">  <span class="attr">address</span>: &#123;</span><br><span class="line">    <span class="attr">city</span>: <span class="string">&quot;shang&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">kind</span>: <span class="literal">null</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">age</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">age</span>?.<span class="title function_">split</span>(<span class="string">&quot;&quot;</span>));</span><br><span class="line"><span class="comment">//依然执行</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">kind</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="更多示例"><a href="#更多示例" class="headerlink" title="更多示例"></a>更多示例</h4><p>以下是一个复杂对象的示例代码，演示了在 JavaScript 中访问属性或方法时可能出现异常的情况：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Alice&#x27;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">30</span>,</span><br><span class="line">  <span class="attr">address</span>: &#123;</span><br><span class="line">    <span class="attr">street</span>: <span class="string">&#x27;123 Main St&#x27;</span>,</span><br><span class="line">    <span class="attr">city</span>: <span class="string">&#x27;New York&#x27;</span>,</span><br><span class="line">    <span class="attr">state</span>: <span class="string">&#x27;NY&#x27;</span>,</span><br><span class="line">    <span class="attr">country</span>: <span class="string">&#x27;USA&#x27;</span>,</span><br><span class="line">    <span class="attr">zip</span>: <span class="string">&#x27;10001&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">orders</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">id</span>: <span class="number">1</span>,</span><br><span class="line">      <span class="attr">date</span>: <span class="string">&#x27;2023-05-24&#x27;</span>,</span><br><span class="line">      <span class="attr">items</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">sku</span>: <span class="string">&#x27;001&#x27;</span>,</span><br><span class="line">          <span class="attr">name</span>: <span class="string">&#x27;Product A&#x27;</span>,</span><br><span class="line">          <span class="attr">price</span>: <span class="number">10.99</span>,</span><br><span class="line">          <span class="attr">qty</span>: <span class="number">2</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">sku</span>: <span class="string">&#x27;002&#x27;</span>,</span><br><span class="line">          <span class="attr">name</span>: <span class="string">&#x27;Product B&#x27;</span>,</span><br><span class="line">          <span class="attr">price</span>: <span class="number">5.99</span>,</span><br><span class="line">          <span class="attr">qty</span>: <span class="number">3</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">      ],</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">id</span>: <span class="number">2</span>,</span><br><span class="line">      <span class="attr">date</span>: <span class="string">&#x27;2023-05-23&#x27;</span>,</span><br><span class="line">      <span class="attr">items</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">sku</span>: <span class="string">&#x27;003&#x27;</span>,</span><br><span class="line">          <span class="attr">name</span>: <span class="string">&#x27;Product C&#x27;</span>,</span><br><span class="line">          <span class="attr">price</span>: <span class="number">15.99</span>,</span><br><span class="line">          <span class="attr">qty</span>: <span class="number">1</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">      ],</span><br><span class="line">    &#125;,</span><br><span class="line">  ],</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Accessing property that may not exist</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="property">phone</span>); <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Accessing nested property that may not exist</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="property">address</span>.<span class="property">zipcode</span>); <span class="comment">// TypeError: Cannot read property &#x27;zipcode&#x27; of undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Accessing array element that may not exist</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="property">orders</span>[<span class="number">2</span>]); <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Accessing property of array element that may not exist</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="property">orders</span>[<span class="number">1</span>].<span class="property">items</span>[<span class="number">0</span>].<span class="property">quantity</span>); <span class="comment">// TypeError: Cannot read property &#x27;quantity&#x27; of undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>在这个示例中，对象 <code>user</code> 包含了多层嵌套的属性和数组元素。如果在访问某个属性或方法时出现了未知的属性、数组元素或者 <code>null</code>&#x2F;<code>undefined</code> 值，将会导致程序抛出异常并停止执行。</p>
+<p>因此，在编写 JavaScript 程序时应该特别注意这种情况，并使用适当的方法来避免出现异常。例如，可以使用可选链操作符 <code>?.</code> 来避免访问不存在的属性或方法，或者使用条件判断语句来检查数组元素是否存在等。</p>
+<h4 id="使用可选链操作符"><a href="#使用可选链操作符" class="headerlink" title="使用可选链操作符"></a>使用可选链操作符</h4><p>以下是使用可选链操作符 <code>?.</code> 的示例代码，演示了如何避免访问不存在的属性或方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Accessing property that may not exist</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="property">phone</span>?.<span class="property">number</span>); <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Accessing nested property that may not exist</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="property">address</span>?.<span class="property">zipcode</span>); <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Accessing array element that may not exist</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="property">orders</span>?.[<span class="number">2</span>]); <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Accessing property of array element that may not exist</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="property">orders</span>?.[<span class="number">1</span>]?.<span class="property">items</span>?.[<span class="number">0</span>]?.<span class="property">quantity</span>); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>在这个示例中，使用了可选链操作符 <code>?.</code> 来避免访问可能不存在的属性、方法或数组元素。</p>
+<p>例如，<code>user.phone?.number</code> 表示如果 <code>phone</code> 属性存在，则访问它的 <code>number</code> 属性，否则返回 <code>undefined</code>。</p>
+<p>同样地，<code>user.address?.zipcode</code> 和 <code>user.orders?.[2]</code> 都表示在相应的属性或数组元素存在时才进行访问，否则返回 <code>undefined</code>。</p>
+<p>最后，<code>user.orders?.[1]?.items?.[0]?.quantity</code> 使用了多重可选链操作符来避免深层次的属性访问出现异常。如果某个属性不存在，则整个表达式都会返回 <code>undefined</code>。</p>
+<p>总之，可选链操作符是一种非常实用的语法特性，可以避免因为未知属性或方法而导致程序崩溃或停止执行。</p>
+<h3 id="JavaScript错误类型示例代码"><a href="#JavaScript错误类型示例代码" class="headerlink" title="JavaScript错误类型示例代码"></a>JavaScript错误类型示例代码</h3><p>以下是 JavaScript 中错误类型的示例代码，它们都会导致程序抛出异常并停止执行：</p>
+<ol>
+<li><code>EvalError</code> 错误：当使用全局函数 eval() 中的代码存在错误时，JavaScript 抛出 EvalError 错误。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span>(<span class="string">&quot;console.log(&#x27;Hello, world!&#x27;;&quot;</span>); <span class="comment">// Uncaught EvalError: missing ) after argument list</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><code>RangeError</code> 错误：当使用超出有效范围的值创建对象或数组时，JavaScript 抛出 RangeError 错误。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Array</span>(-<span class="number">1</span>); <span class="comment">// Uncaught RangeError: Invalid array length</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><code>ReferenceError</code> 错误：当尝试访问一个不存在的变量或函数时，JavaScript 抛出 ReferenceError 错误。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="comment">// Uncaught ReferenceError: a is not defined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="title function_">bar</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">foo</span>(); <span class="comment">// Uncaught ReferenceError: bar is not defined</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><code>SyntaxError</code> 错误：当 JavaScript 代码包含语法错误时，例如括号不匹配、缺少分号等，JavaScript 抛出 SyntaxError 错误。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hello, world!&quot;</span> <span class="comment">// Uncaught SyntaxError: missing ) after argument list</span></span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li><code>TypeError</code> 错误：当尝试访问一个不存在或不支持的方法或属性时，JavaScript 抛出 TypeError 错误。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;Tom&quot;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">25</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">person.<span class="title function_">sayHi</span>(); <span class="comment">// Uncaught TypeError: person.sayHi is not a function</span></span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li><code>URIError</code> 错误：当传递给 URI 相关的全局函数的参数无效时，例如解码无效的 URI 字符串，JavaScript 抛出 URIError 错误。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">decodeURIComponent</span>(<span class="string">&quot;%&quot;</span>); <span class="comment">// Uncaught URIError: URI malformed</span></span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li><code>AggregateError</code> 错误：当 Promise.all() 或 Promise.allSettled() 方法中的一个或多个 Promise 拒绝了（rejected）时，JavaScript 抛出 AggregateError 错误。它包含一个具有所有拒绝原因的数组。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Promise</span>.<span class="title function_">all</span>([</span><br><span class="line">  <span class="title class_">Promise</span>.<span class="title function_">resolve</span>(<span class="number">1</span>),</span><br><span class="line">  <span class="title class_">Promise</span>.<span class="title function_">reject</span>(<span class="string">&quot;error&quot;</span>),</span><br><span class="line">  <span class="title class_">Promise</span>.<span class="title function_">resolve</span>(<span class="number">3</span>),</span><br><span class="line">]).<span class="title function_">catch</span>(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(err); <span class="comment">// Uncaught AggregateError: error</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li><code>InternalError</code> 错误：当 JavaScript 引擎发生内部错误时，例如无限递归、堆栈溢出等，JavaScript 抛出 InternalError 错误。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="title function_">foo</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">foo</span>(); <span class="comment">// Uncaught InternalError: too much recursion</span></span><br></pre></td></tr></table></figure>
+
+<p>总之，这些错误类型都可能导致程序崩溃或停止执行，并且通常需要使用调试工具来找到和解决。在编写 JavaScript 程序时，应该仔细考虑并避免出现这些错误，以确保程序的正确性和稳定性。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Simon</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/star/48466cd5.html">http://example.com/star/48466cd5.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Like a Star</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JavaScript/">JavaScript</a></div><div class="post_share"><div class="social-share" data-image="/img/category_per.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/star/e28e5a40.html" title="JavaScript常用common函数"><img class="cover" src="/img/category_per.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">JavaScript常用common函数</div></div></a></div><div class="next-post pull-right"><a href="/star/cf16bea3.html" title="slice，splice，split方法对比"><img class="cover" src="/img/category_per.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">slice，splice，split方法对比</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/star/e28e5a40.html" title="JavaScript常用common函数"><img class="cover" src="/img/category_per.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-24</div><div class="title">JavaScript常用common函数</div></div></a></div><div><a href="/star/cf16bea3.html" title="slice，splice，split方法对比"><img class="cover" src="/img/category_per.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-24</div><div class="title">slice，splice，split方法对比</div></div></a></div><div><a href="/star/9520ab60.html" title="JavaScript程序健壮性和稳定性"><img class="cover" src="/img/category_per.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-24</div><div class="title">JavaScript程序健壮性和稳定性</div></div></a></div><div><a href="/star/c5b4a085.html" title="可选链操作符的本质"><img class="cover" src="/img/category_per.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-24</div><div class="title">可选链操作符的本质</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Simon</div><div class="author-info__description">月明 ♥ 曦</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Simonduya"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><h2 align="center">记得常来看看</h2> <p align="center"><img src="https://haiyong.site/img/img-blog.csdnimg.cn/f7384c88956d4378b72e47548e19c9f8.gif" width="50" alt="mao"></p> <p align="center">微信号：meiyoune</p> <p align="center">QQ号：2185308330</p></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E9%94%99%E8%AF%AF%E4%B8%8E%E5%BC%82%E5%B8%B8"><span class="toc-number">1.</span> <span class="toc-text">程序错误与异常</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%9C%AA%E7%9F%A5%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.</span> <span class="toc-text">访问对象的未知属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E5%A4%9A%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.1.1.</span> <span class="toc-text">更多示例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%8F%AF%E9%80%89%E9%93%BE%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">1.1.2.</span> <span class="toc-text">使用可选链操作符</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript%E9%94%99%E8%AF%AF%E7%B1%BB%E5%9E%8B%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81"><span class="toc-number">1.2.</span> <span class="toc-text">JavaScript错误类型示例代码</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/star/9520ab60.html" title="JavaScript程序健壮性和稳定性">JavaScript程序健壮性和稳定性</a><time datetime="2023-05-24T14:29:20.000Z" title="发表于 2023-05-24 22:29:20">2023-05-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/star/c5b4a085.html" title="可选链操作符的本质">可选链操作符的本质</a><time datetime="2023-05-24T14:28:08.000Z" title="发表于 2023-05-24 22:28:08">2023-05-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/star/1599bffe.html" title="归并排序">归并排序</a><time datetime="2023-05-24T14:27:03.000Z" title="发表于 2023-05-24 22:27:03">2023-05-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/star/e28e5a40.html" title="JavaScript常用common函数">JavaScript常用common函数</a><time datetime="2023-05-24T14:17:28.000Z" title="发表于 2023-05-24 22:17:28">2023-05-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/star/48466cd5.html" title="JavaScript程序错误与异常">JavaScript程序错误与异常</a><time datetime="2023-05-24T14:17:28.000Z" title="发表于 2023-05-24 22:17:28">2023-05-24</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Simon</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
