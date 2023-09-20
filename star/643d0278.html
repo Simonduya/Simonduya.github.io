@@ -1,0 +1,205 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>vue源码学习 | Like a Star</title><meta name="author" content="Simon"><meta name="copyright" content="Simon"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="真实 DOM 渲染在过去，我们编写的 HTML 文档会被浏览器解析成 DOM 树，最终呈现为页面上的各个元素。 虚拟 DOM 的优势虚拟 DOM（Virtual DOM）是一种对真实 DOM 的抽象概念，目前被广泛引入到三大前端框架中。 1. 简化 DOM 操作直接操作真实 DOM 元素的操作相对繁琐。例如，如果要复制一个&lt;div&gt;元素，需要复制该元素的各种属性，这会显著增加代码复杂性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue源码学习">
+<meta property="og:url" content="http://example.com/star/643d0278.html">
+<meta property="og:site_name" content="Like a Star">
+<meta property="og:description" content="真实 DOM 渲染在过去，我们编写的 HTML 文档会被浏览器解析成 DOM 树，最终呈现为页面上的各个元素。 虚拟 DOM 的优势虚拟 DOM（Virtual DOM）是一种对真实 DOM 的抽象概念，目前被广泛引入到三大前端框架中。 1. 简化 DOM 操作直接操作真实 DOM 元素的操作相对繁琐。例如，如果要复制一个&lt;div&gt;元素，需要复制该元素的各种属性，这会显著增加代码复杂性">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/category_per.webp">
+<meta property="article:published_time" content="2023-09-20T09:13:23.000Z">
+<meta property="article:modified_time" content="2023-09-20T11:28:06.710Z">
+<meta property="article:author" content="Simon">
+<meta property="article:tag" content="源码">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/category_per.webp"><link rel="shortcut icon" href="/img/head.jpg"><link rel="canonical" href="http://example.com/star/643d0278.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'vue源码学习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-20 19:28:06'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/universe.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/category_per.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="Like a Star"><span class="site-name">Like a Star</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">vue源码学习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-09-20T09:13:23.000Z" title="发表于 2023-09-20 17:13:23">2023-09-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-20T11:28:06.710Z" title="更新于 2023-09-20 19:28:06">2023-09-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%BA%90%E7%A0%81/">源码</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="vue源码学习"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="真实-DOM-渲染"><a href="#真实-DOM-渲染" class="headerlink" title="真实 DOM 渲染"></a>真实 DOM 渲染</h2><p>在过去，我们编写的 HTML 文档会被浏览器解析成 DOM 树，最终呈现为页面上的各个元素。</p>
+<h2 id="虚拟-DOM-的优势"><a href="#虚拟-DOM-的优势" class="headerlink" title="虚拟 DOM 的优势"></a>虚拟 DOM 的优势</h2><p>虚拟 DOM（Virtual DOM）是一种对真实 DOM 的抽象概念，目前被广泛引入到三大前端框架中。</p>
+<h3 id="1-简化-DOM-操作"><a href="#1-简化-DOM-操作" class="headerlink" title="1. 简化 DOM 操作"></a>1. 简化 DOM 操作</h3><p>直接操作真实 DOM 元素的操作相对繁琐。例如，如果要复制一个<code>&lt;div&gt;</code>元素，需要复制该元素的各种属性，这会显著增加代码复杂性。</p>
+<p>虚拟 DOM 通过 JavaScript 对象的形式表示 DOM 节点（称为 VNode），这样可以更轻松地进行操作和处理，避免了直接操作庞大的真实 DOM 树。</p>
+<h3 id="2-高效的差异计算"><a href="#2-高效的差异计算" class="headerlink" title="2. 高效的差异计算"></a>2. 高效的差异计算</h3><p>在进行 DOM 更新时，常常需要比较两个不同状态下的 DOM 结构，以确定需要更新哪些部分。直接对比两个真实 DOM 树的复杂度较高。</p>
+<p>虚拟 DOM 使得比较两个 VNode 树变得更加高效，因为它们是纯 JavaScript 对象，可以进行快速的比较，减少了性能开销。这一过程通常被称为”diff 算法”。</p>
+<h3 id="3-降低浏览器回流"><a href="#3-降低浏览器回流" class="headerlink" title="3. 降低浏览器回流"></a>3. 降低浏览器回流</h3><p>对真实 DOM 的频繁操作可能导致浏览器的回流（reflow），这是一种性能开销较大的操作，可能导致页面重新排版。虚拟 DOM 的存在可以减少对真实 DOM 的直接操作，从而降低回流的发生。</p>
+<h3 id="4-跨平台兼容性"><a href="#4-跨平台兼容性" class="headerlink" title="4. 跨平台兼容性"></a>4. 跨平台兼容性</h3><p>虚拟 DOM 的抽象层使得前端应用更容易跨不同平台和环境使用。因为虚拟 DOM 是基于 JavaScript 的，它可以在浏览器、移动应用和服务器端渲染等多种环境中使用，使得开发更加灵活和可维护。</p>
+<p>综上所述，虚拟 DOM 的引入为前端开发带来了诸多优势，简化了操作、提高了性能，同时也提高了跨平台的可移植性。这是为什么现代前端框架广泛采用虚拟 DOM 的主要原因之一。</p>
+<h2 id="虚拟-DOM-的渲染过程"><a href="#虚拟-DOM-的渲染过程" class="headerlink" title="虚拟 DOM 的渲染过程"></a>虚拟 DOM 的渲染过程</h2><p>虚拟 DOM 的渲染过程通常可以描述如下：</p>
+<ol>
+<li><p><strong>编写模板（Template）</strong>：前端开发人员编写模板，这个模板通常包含 HTML 结构和模板语法，例如 Vue 中的模板或 React 中的 JSX。</p>
+</li>
+<li><p><strong>模板编译（Template Compilation）</strong>：模板会被编译器（Compiler）处理，将模板转换为可执行的渲染函数。这个过程通常发生在构建阶段，例如在 Vue 中使用的单文件组件编译器或者 React 中的 Babel。</p>
+</li>
+<li><p><strong>调用渲染函数（Invoke Render Function）</strong>：在运行时，编译后的渲染函数会被调用，这个函数生成虚拟节点（VNode）树。</p>
+</li>
+<li><p><strong>虚拟节点构建（VNode Creation）</strong>：渲染函数内部会调用 h 函数（或 createElement 函数），用于创建虚拟节点（VNode）。这些虚拟节点代表了页面的结构和内容。</p>
+</li>
+<li><p><strong>虚拟 DOM 构建（Virtual DOM Creation）</strong>：一系列的虚拟节点会被组合成虚拟 DOM 树，这个树形结构代表了应用程序的当前状态。</p>
+</li>
+<li><p><strong>虚拟 DOM 与真实 DOM 的比对（Virtual DOM Diffing）</strong>：当应用程序的状态发生改变时，新的虚拟 DOM 树会与之前的虚拟 DOM 树进行比对，找出差异（Diffing）。</p>
+</li>
+<li><p><strong>差异更新（Patch Updates）</strong>：找到差异后，渲染器（Renderer）会将这些差异应用到真实的 DOM 上，这个过程通常被称为“补丁更新”，它只会更新真实 DOM 中实际发生变化的部分，而不是整个页面。</p>
+</li>
+<li><p><strong>浏览器渲染（Browser Rendering）</strong>：最终，更新后的真实 DOM 会被浏览器渲染到屏幕上，用户可以看到更新后的界面。</p>
+</li>
+</ol>
+<p>虚拟 DOM 的优势在于它将真实 DOM 的操作和更新抽象成了一个高效的过程，通过比对差异，只更新必要的部分，从而提高了性能和用户体验。这种机制在流行的前端框架（如 Vue 和 React）中得到广泛应用，以实现响应式和高效的界面更新。</p>
+<p>template 被 compiler 编译为 render 函数, 然后调用 render 函数, render 函数中又会再次调用 h 函数, h 函数返回虚拟节点 VNode, 一个个 VNode 形成虚拟 DOM,再通过渲染器将虚拟 DOM 转为真实的 DOM, 最后交给浏览器渲染</p>
+<h2 id="三大核心系统"><a href="#三大核心系统" class="headerlink" title="三大核心系统"></a>三大核心系统</h2><p>三大核心系统模块是现代前端框架中的重要组成部分，它们协同工作以实现整个应用程序的渲染和响应式更新：</p>
+<ol>
+<li><p><strong>编译器模块（Compiler Module）</strong>：编译器负责将开发人员编写的模板（Template）转换为可执行的渲染函数。这个渲染函数通常会调用 h 函数（或 createElement 函数），生成虚拟节点（VNode）树，并最终返回树的根节点。这个模块在构建阶段运行，例如，在 Vue.js 中，Vue Loader 会处理单文件组件并通过编译器将其转换为 JavaScript 代码。</p>
+</li>
+<li><p><strong>运行时模块（Runtime Module，或称为 Renderer 模块）</strong>：运行时模块负责将虚拟节点树渲染为真实的 DOM 元素，并将其呈现在浏览器中。在这个过程中，运行时模块会使用响应式系统来监听数据变化，一旦数据发生变化，它将触发重新渲染，并将新的虚拟节点与旧的虚拟节点进行比对，然后更新真实的 DOM。这个模块使得应用程序能够动态响应数据的变化，实现了双向数据绑定等功能。</p>
+</li>
+<li><p><strong>响应式模块（Reactivity Module）</strong>：响应式模块是前端框架的核心之一，它负责建立数据的监听机制。当数据发生变化时，响应式系统会自动通知相关的依赖，并执行相应的代码来处理这些变化。在响应式系统内部，通常会有一个 patch 函数，用于执行差异比对（Diffing）算法，以确定哪些虚拟节点需要更新，然后将这些变化应用到真实的 DOM 上。这个模块使得开发人员可以方便地管理应用程序的状态和数据，以及实现数据驱动的视图更新。</p>
+</li>
+</ol>
+<p>综合而言，这三大核心系统模块共同构成了现代前端框架的基础架构，使得开发人员能够更容易地构建高性能、响应式的用户界面。这种模块化和分层的设计有助于提高代码的可维护性和可扩展性，同时实现了前端应用程序的复杂功能和动态性。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Simon</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/star/643d0278.html">http://example.com/star/643d0278.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Like a Star</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%BA%90%E7%A0%81/">源码</a></div><div class="post_share"><div class="social-share" data-image="/img/category_per.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/star/90bb1448.html" title="深入理解BFC"><img class="cover" src="/img/category_per.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">深入理解BFC</div></div></a></div><div class="next-post pull-right"><a href="/star/783ce8a9.html" title="移动端适配"><img class="cover" src="/img/category_per.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">移动端适配</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Simon</div><div class="author-info__description">月明 ♥ 曦</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Simonduya"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><h2 align="center">记得常来看看</h2> <p align="center"><img src="https://haiyong.site/img/img-blog.csdnimg.cn/f7384c88956d4378b72e47548e19c9f8.gif" width="50" alt="mao"></p> <p align="center">微信号：meiyoune</p> <p align="center">QQ号：2185308330</p></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9C%9F%E5%AE%9E-DOM-%E6%B8%B2%E6%9F%93"><span class="toc-number">1.</span> <span class="toc-text">真实 DOM 渲染</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F-DOM-%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-number">2.</span> <span class="toc-text">虚拟 DOM 的优势</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%AE%80%E5%8C%96-DOM-%E6%93%8D%E4%BD%9C"><span class="toc-number">2.1.</span> <span class="toc-text">1. 简化 DOM 操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%AB%98%E6%95%88%E7%9A%84%E5%B7%AE%E5%BC%82%E8%AE%A1%E7%AE%97"><span class="toc-number">2.2.</span> <span class="toc-text">2. 高效的差异计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%99%8D%E4%BD%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9B%9E%E6%B5%81"><span class="toc-number">2.3.</span> <span class="toc-text">3. 降低浏览器回流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="toc-number">2.4.</span> <span class="toc-text">4. 跨平台兼容性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F-DOM-%E7%9A%84%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">虚拟 DOM 的渲染过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%A4%A7%E6%A0%B8%E5%BF%83%E7%B3%BB%E7%BB%9F"><span class="toc-number">4.</span> <span class="toc-text">三大核心系统</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/star/90bb1448.html" title="深入理解BFC">深入理解BFC</a><time datetime="2023-09-20T13:59:06.000Z" title="发表于 2023-09-20 21:59:06">2023-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/star/643d0278.html" title="vue源码学习">vue源码学习</a><time datetime="2023-09-20T09:13:23.000Z" title="发表于 2023-09-20 17:13:23">2023-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/star/783ce8a9.html" title="移动端适配">移动端适配</a><time datetime="2023-09-19T14:08:20.000Z" title="发表于 2023-09-19 22:08:20">2023-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/star/b5385ca.html" title="temp">temp</a><time datetime="2023-08-23T13:47:48.000Z" title="发表于 2023-08-23 21:47:48">2023-08-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/star/2a75657e.html" title="this绑定规则">this绑定规则</a><time datetime="2023-08-03T05:47:01.000Z" title="发表于 2023-08-03 13:47:01">2023-08-03</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Simon</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
